@@ -3,7 +3,7 @@ import AdminSchema from "../../models/admin.model";
 import * as bcrypt from "bcrypt";
 import { adminZODSchema } from "../../zod/admin";
 
-export const createAdminAccount = async (req: Request, res: Response): Promise<Response> => {
+export const createAdminAccount = async (req: Request, res: Response): Promise<string | any> => {
     const payload  = req.body;
 
     const adminData = adminZODSchema.safeParse(payload);

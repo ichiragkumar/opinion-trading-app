@@ -4,7 +4,7 @@ import AdminSchema from "../../models/admin.model";
 import { loginAdminSchema } from "../../zod/admin";
 import * as bcrypt from "bcrypt";
 
-export const loginAdminAccount = async (req: Request, res: Response): Promise<Response> => {
+export const loginAdminAccount = async (req: Request, res: Response): Promise<string | any> => {
     const payload = req.body;
     const adminData = loginAdminSchema.safeParse(payload);
 
