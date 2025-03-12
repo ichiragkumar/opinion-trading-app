@@ -8,5 +8,8 @@ export const userZODSchema = z.object({
 }); 
 
 
-
+export const loginToYourAccountSchema = z.object({
+    email: z.string().email().min(3).max(50).optional(),
+    password: z.string().min(3).max(50).optional(),
+});
 export type InferUsercreateAccountSchema = z.infer<typeof userZODSchema>;
