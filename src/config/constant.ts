@@ -13,4 +13,13 @@ export enum EVENT_TYPE {
     ENTERTAINMENT = "ENTERTAINMENT",
     TECH = "TECH",
     OTHER = "OTHER",
+    NEWS = "NEWS",
 }
+
+
+
+export enum ADMIN_TYPE {
+    ADMIN= "ADMIN",
+    MODERATOR= "MODERATOR",
+    SUPER_ADMIN= "SUPER_ADMIN",
+};

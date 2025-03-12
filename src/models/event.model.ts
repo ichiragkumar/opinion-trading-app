@@ -29,7 +29,7 @@ const eventSchema = new mongoose.Schema({
     eventType: {
         type: EVENT_TYPE,
         values : Object.values(EVENT_TYPE),
-        required: true,
+        default : "NEWS",
     },
 
     isActive: {
