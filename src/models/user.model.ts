@@ -12,8 +12,6 @@ export interface User {
     isInvited: boolean;
     password: string;
     joinedAt: number;
-    
-
 }
 
 const userSchema = new mongoose.Schema<User>({
