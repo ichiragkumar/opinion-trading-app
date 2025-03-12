@@ -1,15 +1,13 @@
-import { z } from "zod";
-
+import { z } from 'zod';
 
 export const userZODSchema = z.object({
-    name: z.string().min(3).max(50).optional(),
-    email: z.string().email().min(3).max(50).optional(),
-    password: z.string().min(3).max(50).optional(),
-}); 
-
+  name: z.string().min(3).max(50).optional(),
+  email: z.string().email().min(3).max(50).optional(),
+  password: z.string().min(3).max(50).optional(),
+});
 
 export const loginToYourAccountSchema = z.object({
-    email: z.string().email().min(3).max(50),
-    password: z.string().min(3).max(50)
+  email: z.string().email().min(3).max(50),
+  password: z.string().min(3).max(50),
 });
 export type InferUsercreateAccountSchema = z.infer<typeof userZODSchema>;
