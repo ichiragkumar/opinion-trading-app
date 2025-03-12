@@ -5,7 +5,7 @@ import UserSchaema from "../../models/user.model";
 import { generateRefferalCode } from "../../config/refferalCode";
 import * as bcrypt from "bcrypt";
 
-export const createUseraccount =async (req : Request, res : Response) => {
+export const createUseraccount =async (req : Request, res : Response) : Promise<string | any> => {
         const payload = req.body;
         const userData =  userZODSchema.safeParse(payload);
         if(!userData.success){

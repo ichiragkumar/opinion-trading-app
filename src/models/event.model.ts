@@ -27,7 +27,7 @@ const eventSchema = new mongoose.Schema({
         required: true,
     },
     eventType: {
-        type: EVENT_TYPE,
+        type: String,
         values : Object.values(EVENT_TYPE),
         default : "NEWS",
     },

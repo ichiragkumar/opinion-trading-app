@@ -1,10 +1,11 @@
+import { Request, Response } from "express";
 import { generateJwtToken } from "../../config/generateJWT-token";
 import UserSchema from "../../models/user.model";
 import { loginToYourAccountSchema } from "../../zod/user";
 import * as bcrypt from "bcrypt";
 
 
-export const loginUseraccount = async (req: any, res: any) => {
+export const loginUseraccount = async (req: Request, res: Response):Promise<any> => {
     const payload = req.body;
     const userData = loginToYourAccountSchema.safeParse(payload);
 
@@ -16,7 +17,9 @@ export const loginUseraccount = async (req: any, res: any) => {
     }
 
     try {
-        const isUserExist = await UserSchema.findOne({ email: payload.email });
+
+        const {email , password } = userData.data;
+        const isUserExist = await UserSchema.findOne({ email: email });
         if (!isUserExist) {
             return res.status(404).json({
                 success: false,
@@ -24,7 +27,7 @@ export const loginUseraccount = async (req: any, res: any) => {
             });
         }
 
-        const isPasswordCorrect = await bcrypt.compare(payload.password, isUserExist.password);
+        const isPasswordCorrect = await bcrypt.compare(password, isUserExist.password);
         if (!isPasswordCorrect) {
             return res.status(401).json({
                 success: false,

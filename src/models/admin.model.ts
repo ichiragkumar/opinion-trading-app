@@ -1,56 +1,47 @@
-
-
-
-import mongoose from "mongoose";
+import mongoose, { Document, Schema } from "mongoose";
 import { ADMIN_TYPE } from "../config/constant";
 
-export interface Admin {
+
+export interface Admin extends Document {
     name: string;
     adminType: ADMIN_TYPE;
     isActive: boolean;
     email: string;
     password: string;
-    joinedAt: number;   
-    
+    joinedAt: number;
 }
 
-
-const adminSchema = new mongoose.Schema({
+const adminSchema = new Schema<Admin>({
     name: {
         type: String,
         required: true,
     },
     adminType: {
-        type: ADMIN_TYPE,
-        values: Object.values(ADMIN_TYPE),
-        default: "ADMIN",
+        type: String,
+        enum: Object.values(ADMIN_TYPE),
+        default: ADMIN_TYPE.ADMIN,
     },
     isActive: {
         type: Boolean,
         default: true,
     },
-
     email: {
         type: String,
         required: true,
+        unique: true,
     },
     password: {
         type: String,
         required: true,
     },
-
     joinedAt: {
         type: Number,
-        required: true,
+        default: Date.now,
     },
-
-
 }, {
-timestamps: true,
+    timestamps: true,
 });
 
+const AdminSchema = mongoose.model<Admin>("Admin", adminSchema);
 
-
-const AdminSchaema = mongoose.model<Admin>("Admin", adminSchema);
-
-export default AdminSchaema;
+export default AdminSchema;

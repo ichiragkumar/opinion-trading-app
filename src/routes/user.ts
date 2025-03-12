@@ -1,4 +1,6 @@
 import express from "express";
+import { createUseraccount } from "../controllers/user/createAccount";
+import { loginUseraccount } from "../controllers/user/loginAccount";
 
 
 const userRouter = express.Router();
@@ -10,7 +12,7 @@ userRouter.post("/login" , loginUseraccount)
 
 
 
-userRouter.patch("/update" , updateUseraccount)
+
 
 export default userRouter;
 
