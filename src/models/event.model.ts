@@ -6,8 +6,7 @@ import { EVENT_TYPE } from "../config/constant";
 export interface Event {
     title: string;
     description: string;
-    date: Number;
-    eventType: EVENT_TYPE;
+    eventType: string;
     isActive: boolean;
     postedOn: number;
     addedByAdminId: mongoose.Types.ObjectId;    
@@ -22,10 +21,7 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    date: {
-        type: Date,
-        required: true,
-    },
+
     eventType: {
         type: String,
         values : Object.values(EVENT_TYPE),

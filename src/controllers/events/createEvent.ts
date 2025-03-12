@@ -17,7 +17,7 @@ export const createEvent = async (req: Request, res: Response): Promise<string |
     }
 
     try {
-        const { title, description, date, eventType, isActive, addedByAdminId, postedOn } = eventData.data;
+        const { title, description, eventType, isActive, addedByAdminId, postedOn } = eventData.data;
 
 
         if (!mongoose.Types.ObjectId.isValid(addedByAdminId)) {
@@ -38,7 +38,6 @@ export const createEvent = async (req: Request, res: Response): Promise<string |
         await EventSchema.create({
             title,
             description,
-            date,
             eventType,
             isActive,
             addedByAdminId:  new mongoose.Types.ObjectId(addedByAdminId),
