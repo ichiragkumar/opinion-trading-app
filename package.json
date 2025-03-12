@@ -4,9 +4,20 @@
   "description": "Assignment: Backend Development for Opinion Trading App Objective: The purpose of this assignment is to evaluate your backend development skills, including API creation, WebSocket implementation, and database management using MongoDB. The goal is to build a functional backend system that can fetch live data, process events, and enable trading operations via an admin panel. If you wants to understand about opinion trading please check following probo.in",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -b",
+    "start": "npm run build && node dist/index.js",
+    "dev": "nodemon --watch \"src/**/*.ts\" --exec \"npx ts-node\" src/index.ts"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.12.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2"
+  }
 }

@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+export enum EVENT_TYPE {
+    SPORTS = "SPORTS",
+    POLITICS = "POLITICS",
+    ECONOMY = "ECONOMY",
+    TRADE= "TRADE",
+    ENTERTAINMENT = "ENTERTAINMENT",
+    TECH = "TECH",
+    OTHER = "OTHER",
+}
