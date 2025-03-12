@@ -1,7 +1,7 @@
 {
   "name": "opinion-trading-app",
   "version": "1.0.0",
-  "description": "Assignment: Backend Development for Opinion Trading App Objective: The purpose of this assignment is to evaluate your backend development skills, including API creation, WebSocket implementation, and database management using MongoDB. The goal is to build a functional backend system that can fetch live data, process events, and enable trading operations via an admin panel. If you wants to understand about opinion trading please check following probo.in",
+  "description": "Assignment: Backend Development for Opinion Trading App. The goal is to build a functional backend system that can fetch live data, process events, and enable trading operations via an admin panel. If you want to understand opinion trading, please check probo.in.",
   "main": "index.js",
   "scripts": {
     "build": "tsc -b",
@@ -9,13 +9,13 @@
     "dev": "nodemon --watch \"src/**/*.ts\" --exec \"npx ts-node\" src/index.ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "format": "prettier --write .",
-    "lint-staged": {
-      "**/*.{ts,tsx}": [
-        "npm run lint:fix",
-        "npm run format"
-      ]
-    }
+    "format": "prettier --write ."
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "npm run lint:fix",
+      "npm run format"
+    ]
   },
   "keywords": [],
   "author": "",
